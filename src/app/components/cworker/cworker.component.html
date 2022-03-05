@@ -1,0 +1,40 @@
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<br><br>
+<div class ="container">
+    <div class ="row">
+        <div class="col-md-3 col-sm-6 my-3 my-md-0">
+            <form action="http://localhost/iSearch/isearch/api/worker/ReadWorkers.php" method="GET">
+                <div class="card shadow">
+                    <img src="assets/pfp.png" alt="Image1" class="img-thumbnail" height =200 width = 200>
+                    <div class="card-body">
+                        <a href="http://localhost/iSearch/isearch/api/worker/ReadSingleWorker.php?worker_id=1"><h6 class="card-title">',$wname,'</h6></a>
+                        <h6>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </h6> 
+                    <input type="hidden" name="product_id" value="',$id,'">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <div class="container mt-5">
+  
+  <table id="users">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td *ngFor="let col of index">
+        {{user[col]}}
+      </td>
+    </tr>
+  
+  </table> -->
