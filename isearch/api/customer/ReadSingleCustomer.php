@@ -10,7 +10,7 @@
     include_once '../../models/customerpost.php';
 
     //Instantiate DB & connect
-    $customer_id = $customer_name = $customer_email = $customer_password = $customer_pic = '';
+    // $customer_id = $customer_name = $customer_email = $customer_password = $customer_pic = '';
     $database = new Database();
     $db = $database->connect();
 
@@ -18,19 +18,19 @@
     $post = new CustomerPost($db);
 
     // Get ID from url 
-    $post->id = isset($_GET['customer_id']) ? $_GET['customer_id'] : die();
+    $post->customer_id = isset($_GET['customer_id']) ? $_GET['customer_id'] : die();
 
     // Get post 
     $post->getCustomer();
 
     // Create array
     $post_item = array(
-        'customer_id' => $customer_id,
-        'customer_name' => $customer_name,
+        'customer_id' => $post->customer_id,
+        'customer_name' => $post->customer_name,
         // 'body' => html_entity_decode($body),
-        'customer_email' => $customer_email,
-        'customer_password' => $customer_password,
-        'customer_pic' => $customer_pic
+        'customer_email' => $post->customer_email,
+        'customer_password' => $post->customer_password,
+        'customer_pic' => $post->customer_pic
     );
 
     // // convert to JSON

@@ -8,33 +8,39 @@
 
 <div class="container">
             <form class="form-horizontal" role="form">
-                <h2>Register as a Worker</h2>
+                
+                <h2>Register</h2>
+                <br>
                 <div class="form-group">
-                    <label for="fullName" class="col-sm-3 control-label">Full Name</label>
+                    <label for="fullName" class="col-sm-3 control-label">Full Name*</label>
                     <div class="col-sm-9">
-                        <input type="text" id="fullName" name ="fullName" placeholder="Full Name" value =""  class="form-control" autofocus>
+                        <input type="text" id="fullName" name ="fullName" placeholder="Last name, First Name, Middle Initial" value =""  class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email* </label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" name= "email" placeholder="Email" value =""  class="form-control" >
+                        <input type="email" id="email" name= "email" placeholder="your-email@example.com" value =""  class="form-control" >
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password*</label>
+                    <label for="phone" class="col-sm-3 control-label">Phone Number*</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" name="password" placeholder="Password" value ="" class="form-control">
+                        <input type="number" id="pnumber" name="pnumber" placeholder="Phone Number(+63)" value ="" class="form-control">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
-                    <div class="col-sm-9">
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Password" value ="" class="form-control">
+                <div class ="form-group">
+                    <label for="worker_category" class="col-sm-3 control-label">Work Category*</label>
+                    <div class ="col-sm-9">
+                        <input type ="text" id="worker_category" name="worker_category" placeholder="Work Category" value ="" class="form-control">
+                    </div>
+                </div>
+                <div class ="form-group">
+                    <label for="worker_address" class="col-sm-3 control-label">Your Address*</label>
+                    <div class ="col-sm-9">
+                        <input type ="text" id="worker_address" name="worker_address" placeholder="Address" value ="" class="form-control">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" (click)="submitInfo()">Register Now</button>
-				<a class = "navlink btn btn-primary btn-lg" routerLink ="/clientreg">Register as a Client ?</a>
-
             </form> <!-- /form -->
         </div> <!-- ./container -->

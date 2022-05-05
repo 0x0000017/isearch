@@ -13,20 +13,24 @@ export class WorkerRegComponent implements OnInit {
   
   submitInfo() {
     let ready = 1;
+
     let w_name = (<HTMLInputElement>document.getElementById("fullName")).value,
     w_email = (<HTMLInputElement>document.getElementById("email")).value,
-    w_pw = (<HTMLInputElement>document.getElementById("password")).value,
-    pwconfirm = (<HTMLInputElement>document.getElementById("confirmPassword")).value
+    w_phone = (<HTMLInputElement>document.getElementById("pnumber")).value,
+    w_cat = (<HTMLInputElement>document.getElementById("worker_category")).value,
+    w_addr = (<HTMLInputElement>document.getElementById("worker_address")).value
+
     
     this.postData = {
       worker_name : w_name,
       worker_email : w_email,
-      worker_password: w_pw,
-      worker_pic : 'wala eh'
+      worker_phone: w_phone,
+      worker_category : w_cat,
+      worker_address : w_addr
     };
 
-    console.log(w_name, w_email, w_pw, pwconfirm, ready);
-    if (ready == 1 && w_pw == pwconfirm && w_email && w_name) {
+    console.log(w_name, w_email, w_phone, ready);
+    if (ready == 1 && w_phone && w_cat && w_addr && w_email && w_name) {
       this.http.post(this.url, this.postData).toPromise()
       if (window.confirm('Success. Click OK to go back to home '))
       {

@@ -2,26 +2,23 @@
 {
 	"Users" : [	
 		{
-			"worker_id":"1",
+			"worker_id":1,
 			"worker_name":"adr",
 			"worker_email":"aa@gm.com",
-			"worker_password":"plain",
-			"worker_pic":"none.jpg",
-			"worker_rating":"99",
+			"worker_phone":"112399",
+			"worker_pic":"https://i.pinimg.com/736x/24/58/98/245898c3526dd836ab0e23c8043f6a43.jpg",
 			"worker_desc":"masipag to pre",
-			"worker_category":"",
-			"isDeleted":"0"
+			"worker_category":"Hitman",
+			"worker_address":""
 		},
 		{
-			"worker_id":"2",
-			"worker_name":"rad",
-			"worker_email":"aa@gm.com",
-			"worker_password":"plain",
-			"worker_pic":"none.jpg",
-			"worker_rating":"99",
-			"worker_desc":"masipag to pre",
-			"worker_category":"utility",
-			"isDeleted":"0"
+			"worker_id":9,
+			"worker_name":"Arboleda, Adrian P.",
+			"worker_email":"arboleda.adrian256@gmail.com","worker_phone":"639065607522",
+			"worker_pic":"http://pm1.narvii.com/6293/6b160ad04001a8b363cce79f98b059faff01c8d6_00.jpg",
+			"worker_desc":"30 mins pahinga 10 minutes lang gagawa",
+			"worker_category":"Plumbing",
+			"worker_address":"Sa bahay sa tuktok ng bundok"
 		}
 	]
 }

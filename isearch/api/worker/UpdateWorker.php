@@ -21,7 +21,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Set ID to update
-    $post->customer_id = $data->customer_id;
+    $post->worker_id = $data->worker_id;
 
     // assign data to the post
     $post->worker_name = $data->worker_name;

@@ -1,40 +1,73 @@
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-----<title>Responsive Profile Cards | CodingLab</title>----->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+</head>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-<br><br>
-<div class ="container">
-    <div class ="row">
-        <div class="col-md-3 col-sm-6 my-3 my-md-0">
-            <form action="http://localhost/iSearch/isearch/api/worker/ReadWorkers.php" method="GET">
-                <div class="card shadow">
-                    <img src="assets/pfp.png" alt="Image1" class="img-thumbnail" height =200 width = 200>
-                    <div class="card-body">
-                        <a href="http://localhost/iSearch/isearch/api/worker/ReadSingleWorker.php?worker_id=1"><h6 class="card-title">',$wname,'</h6></a>
-                        <h6>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </h6> 
-                    <input type="hidden" name="product_id" value="',$id,'">
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="container">
+  <br>
+  <div class="box" *ngFor="let worker of worker">
+    <div class="image">
+       <img src="{{worker.worker_pic}}">
     </div>
+
+    <div class="name_job">{{worker.worker_name}}</div>
+
+    <div class="rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+    </div>
+
+    <div class ="category">
+      <p><i class="fa fa-info-circle" aria-hidden="true"></i>
+        {{worker.worker_category}}</p>
+    </div>
+
+    <p> {{worker.worker_desc}}</p>
+
+    <div class="btns">
+      <button style="background-color: green;">Read More</button>
+    </div>
+
+  </div>
 </div>
-<!-- <div class="container mt-5">
-  
-  <table id="users">
+
+
+
+
+
+
+
+  <!-- <table class="table table-bordered table-striped">
+    <thead>
     <tr>
-      <th *ngFor="let col of columns">
-        {{col}}
-      </th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Picture</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Address</th>
     </tr>
-    <tr *ngFor="let user of users">
-      <td *ngFor="let col of index">
-        {{user[col]}}
-      </td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let worker of worker">
+      <td><span>{{worker.worker_name}}</span></td>
+      <td><span>{{worker.worker_email}}</span></td>
+      <td><span>{{worker.worker_phone}}</span></td>
+      <td><span>{{worker.worker_pic}}</span></td>
+      <td><span>{{worker.worker_desc}}</span></td>
+      <td><span>{{worker.worker_category}}</span></td>
+      <td><span>{{worker.worker_address}}</span></td>
     </tr>
-  
+    </tbody>
   </table> -->

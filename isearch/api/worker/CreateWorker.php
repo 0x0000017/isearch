@@ -23,11 +23,11 @@
     // $post->customer_id = $data->customer_id;
     $post->worker_name = $data->worker_name;
     $post->worker_email = $data->worker_email;
-    $post->worker_password = $data->worker_password;
+    $post->worker_phone = $data->worker_phone;
     $post->worker_pic = $data->worker_pic;
-    $post->worker_rating = $data->worker_rating;
     $post->worker_desc = $data->worker_desc;
     $post->worker_category = $data->worker_category;
+    $post->worker_address = $data->worker_address;
 
     // Create post 
     if($post->createWorker()){

@@ -35,11 +35,11 @@
                 'worker_id' => $worker_id,
                 'worker_name' => $worker_name,
                 'worker_email' => $worker_email,
-                'worker_password' => $worker_password,
+				'worker_phone' => $worker_phone,
                 'worker_pic' => $worker_pic,
-                'worker_rating' => $worker_rating,
                 'worker_desc' => $worker_desc,
-                'worker_category' => $worker_category
+                'worker_category' => $worker_category,
+                'worker_address' => $worker_address
             );
 
             // Push data

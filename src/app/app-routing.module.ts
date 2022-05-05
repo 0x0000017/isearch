@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { CworkerComponent } from './components/cworker/cworker.component';
 import { ComponentsComponent } from './components/components.component';
@@ -17,10 +16,9 @@ import { WorkerRegComponent } from './components/worker-reg/worker-reg.component
 
 const routes: Routes = [
 	{path: 'home', component: HomeComponent},
-	{path: '', redirectTo: '/home', pathMatch: 'full'},
+	{path: '', component: HomeComponent},
 	{path: 'try', component: ComponentsComponent},
 	{path: 'login', component: LoginComponent},
-	{path: 'register', component: RegisterComponent},
 	{path: 'client', component: ClientsComponent},
 	{path: 'worker', component: CworkerComponent},
 	{path: 'profile', component: ProfileComponent},
