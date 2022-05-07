@@ -1,12 +1,7 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { RouterModule } from '@angular/router';
-
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
-
+import { DomSanitizer } from '@angular/platform-browser';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class Worker {
   constructor(
@@ -31,11 +26,20 @@ export class Worker {
 
 })
 
-
 export class CworkerComponent implements OnInit {
-
+ 
+  public searchFilter: any ='';
+  query: any[];
   worker: any[];
-  constructor(private httpClient: HttpClient) {}
+  convImg;
+
+
+  constructor(private httpClient: HttpClient, private _sanitizer: DomSanitizer, private modalService: NgbModal) {}
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+  }
+
+
 
   getWorker() {
     
@@ -43,8 +47,9 @@ export class CworkerComponent implements OnInit {
 
   }
 
-
   ngOnInit(): void {
-    this.getWorker()
+    this.getWorker();
+
   } 
+
 }

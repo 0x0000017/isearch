@@ -41,6 +41,19 @@
                         <input type ="text" id="worker_address" name="worker_address" placeholder="Address" value ="" class="form-control">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg" (click)="submitInfo()">Register Now</button>
-            </form> <!-- /form -->
-        </div> <!-- ./container -->
+                <div class ="form-group">
+                    <label for="worker_description" class="col-sm-3 control-label">Worker Description*</label>
+                    <div class ="col-sm-9">
+                        <input type ="text" id="worker_description" name="worker_description" placeholder="Describe your work/skills" value ="" class="form-control">
+                    </div>
+                </div>
+                <div class ="form-group">
+                    <label for="worker_pic" class="col-sm-3 control-label">Your Picture*</label>
+                    <div class ="col-sm-9">
+                        <input type ="file" accept = "image/png, image/jpeg" id="worker_pic" name="worker_pic" value ="" class="file-upload" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg" (click)="addWorkers()">Register Now</button>
+            </form>
+        </div>

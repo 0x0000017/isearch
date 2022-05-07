@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+    <link rel="stylesheet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+
+
 </head>
+<body>
+<br>
+
+<div class="form-group searchField">
+  <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+</div>
 
 <div class="container">
-  <br>
-  <div class="box" *ngFor="let worker of worker">
+  <div class="box" *ngFor="let worker of worker | searchFilter: query">
     <div class="image">
-       <img src="{{worker.worker_pic}}">
+       <img src="{{worker.worker_picture}}">
     </div>
-
     <div class="name_job">{{worker.worker_name}}</div>
 
     <div class="rating">
@@ -28,46 +34,37 @@
     </div>
 
     <div class ="category">
-      <p><i class="fa fa-info-circle" aria-hidden="true"></i>
-        {{worker.worker_category}}</p>
+      <i class="fa fa-info-circle" ></i>
+        {{worker.worker_category}}
     </div>
-
-    <p> {{worker.worker_desc}}</p>
 
     <div class="btns">
-      <button style="background-color: green;">Read More</button>
+      <button class="btn btn-lg btn-outline-primary" style="background-color: green" (click)="open(content)">View Details</button>
     </div>
-
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{worker.worker_name}}'s Info</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label>Working as a: <b>{{worker.worker_category}}</b></label>
+            <hr><br>
+            <label>Location: <b>{{worker.worker_address}}</b></label>
+            <hr><br>
+            <label>Phone number: <b>{{worker.worker_phone}}</b></label>
+            <hr><br>
+            <label>Email address: <b>{{worker.worker_email}}</b></label>
+            <hr><br>
+            <label>Worker Note: <b>{{worker.worker_description}}</b></label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
+      </div>
+    </ng-template>
   </div>
 </div>
-
-
-
-
-
-
-
-  <!-- <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th>Full Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Picture</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Address</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let worker of worker">
-      <td><span>{{worker.worker_name}}</span></td>
-      <td><span>{{worker.worker_email}}</span></td>
-      <td><span>{{worker.worker_phone}}</span></td>
-      <td><span>{{worker.worker_pic}}</span></td>
-      <td><span>{{worker.worker_desc}}</span></td>
-      <td><span>{{worker.worker_category}}</span></td>
-      <td><span>{{worker.worker_address}}</span></td>
-    </tr>
-    </tbody>
-  </table> -->
+</body>

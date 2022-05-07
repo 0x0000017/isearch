@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
-
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavComponent } from './components/shared/nav/nav.component';
@@ -22,6 +21,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { WorkerRegComponent } from './components/worker-reg/worker-reg.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { CworkerComponent } from './components/cworker/cworker.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 
 
@@ -39,7 +39,8 @@ import { CworkerComponent } from './components/cworker/cworker.component';
     ProfileComponent,
     WorkerRegComponent,
     MyProfileComponent,
-    CworkerComponent
+    CworkerComponent,
+    SearchFilterPipe
  
   ],
   imports: [

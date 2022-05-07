@@ -9,11 +9,15 @@
   background: #8e44ad;
   color: #fff;
 }
+body {
+  background-color: #E9E5E5;
+}
 html,body{
   display: grid;
   height: 100%;
   place-items: center;
   background: #8e44ad;
+  background-color: #E9E5E5;
 }
 .container{
   max-width: 1000px;
@@ -33,6 +37,8 @@ html,body{
   align-items: center;
   padding: 20px 30px;
   border-radius: 5px;
+  margin-left: 25px;
+  margin-bottom: 15px;
 }
 .box .quote i{
 margin-top: 10px;
@@ -77,6 +83,11 @@ color: #17c0eb
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+.searchField {
+  float: right;
+  width:fit-content;
+  padding: 10px;
 }
 .btns button{
   background: #8e44ad;
