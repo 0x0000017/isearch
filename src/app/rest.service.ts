@@ -11,10 +11,10 @@ import { Observable } from 'rxjs';
 export class RESTService {
   
   constructor(private http: HttpClient) {}
-  url = 'http://localhost/isearch/isearch/api/worker/ReadWorkers.php'
+  REST_SERVER = 'http://localhost/isearch/isearch/api/worker/ReadWorkers.php'
   workerData()
   {
-    return this.http.get<any>(this.url);
+    return this.http.get<any>(this.REST_SERVER);
   }
 
 }

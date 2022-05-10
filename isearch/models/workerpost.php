@@ -124,17 +124,19 @@
 
 
         public function updateWorker(){
-            // Create query 
-            $query = 'UPDATE ' . $this->table .'
+
+            $query = 'UPDATE worker_tbl
                     SET 
                     worker_name = :worker_name,
                     worker_email = :worker_email,
                     worker_phone = :worker_phone,
                     worker_pic = :worker_pic,
                     worker_desc = :worker_desc,
-					worker_address = :worker_address
+					worker_address = :worker_address,
+					worker_category = :worker_category
+                    
                     WHERE 
-                    worker_id = :worker_id';
+                    worker_id =:worker_id';
             
             // Prepare statement 
             $stmt = $this->conn->prepare($query);   
@@ -147,15 +149,17 @@
             $this->worker_desc = htmlspecialchars(strip_tags($this->worker_desc));
 			$this->worker_address = htmlspecialchars(strip_tags($this->worker_address));
             $this->worker_id = htmlspecialchars(strip_tags($this->worker_id));
+			$this->worker_category = htmlspecialchars(strip_tags($this->worker_category));
 
             // Bind data
-            $stmt->bindParam(':title', $this->worker_id);
-            $stmt->bindParam(':title', $this->worker_name);
-            $stmt->bindParam(':title', $this->worker_email);
-            $stmt->bindParam(':title', $this->worker_phone);
-            $stmt->bindParam(':title', $this->worker_pic);
-            $stmt->bindParam(':title', $this->worker_desc);
-			$stmt->bindParam(':title', $this->worker_address);
+            $stmt->bindParam(':worker_name', $this->worker_name);
+            $stmt->bindParam(':worker_email', $this->worker_email);
+            $stmt->bindParam(':worker_phone', $this->worker_phone);
+            $stmt->bindParam(':worker_pic', $this->worker_pic);
+            $stmt->bindParam(':worker_desc', $this->worker_desc);
+			$stmt->bindParam(':worker_category', $this->worker_category);
+            $stmt->bindParam(':worker_address', $this->worker_address);
+			$stmt->bindParam(':worker_id', $this->worker_id);
 
 
             // Execute query
@@ -172,13 +176,11 @@
         // Delete post 
         public function deleteWorker(){
             //Create query
-            $query = 'UPDATE ' . $this->table .' SET isDeleted = 1 WHERE worker_id = :worker_id';
+            $query = 'UPDATE worker_tbl SET isDeleted = 1 WHERE worker_id = :worker_id';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);
 
-            // Clean data
-            $this->worker_id = htmlspecialchars(strip_tags($this->worker_id));
              
             // Bind data
             $stmt->bindParam(':worker_id', $this->worker_id);

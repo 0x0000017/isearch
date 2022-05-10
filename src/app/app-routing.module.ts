@@ -12,6 +12,7 @@ import { ComponentsComponent } from './components/components.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WorkerRegComponent } from './components/worker-reg/worker-reg.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
 	{path: 'client', component: ClientsComponent},
 	{path: 'worker', component: CworkerComponent},
 	{path: 'profile', component: ProfileComponent},
-	{path: 'worker-reg', component: WorkerRegComponent}
+	{path: 'worker-reg', component: WorkerRegComponent},
+	{path: 'admin', component: AdminpanelComponent}
 ];
 
 @NgModule({

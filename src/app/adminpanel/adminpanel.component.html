@@ -1,0 +1,124 @@
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+        <link rel="stylesheet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+    </head>
+    
+    
+<body>
+    <br>
+    <div class ="container">
+        <div class="top">
+            <h2>ADMIN PANEL</h2>
+        </div>
+        <hr>
+        <br>
+        <div class ="main" >
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Worker Name</th>
+                    <th scope="col">Worker Address</th>
+                    <th scope="col">Worker Email</th>
+                    <th scope="col">Worker Phone</th>
+                    <th scope="col">Work Category</th>
+                    <th scope="col">Work Description</th>
+                    <th scope="col">Operations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let worker of worker.data">
+                    <th scope="row">{{worker.worker_id}}</th>
+                    <td>{{worker.worker_name}}</td>
+                    <td>{{worker.worker_address}}</td>
+                    <td>{{worker.worker_email}}</td>
+                    <td>{{worker.worker_phone}}</td>
+                    <td>{{worker.worker_category}}</td>
+                    <td>{{worker.worker_desc}}</td>
+                    <td>
+                        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
+                            <i class="fas fa-edit"></i>
+                        </button>&nbsp;	&nbsp;	
+                        <button class="btn btn-lg btn-outline-primary" (click)="delDialog(content2)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Update {{worker.worker_name}}'s Info</h4>
+                          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" placeholder="{{worker.worker_name}}" value ="{{worker.worker_name}}">
+                                  </div>
+                                <div class="form-group">
+                                    <label for="worker_address">Address</label>
+                                    <input type="text" class="form-control" id="worker_address" placeholder="{{worker.worker_address}}" value ="{{worker.worker_address}}">
+                                  </div>
+                                <div class="form-group">
+                                  <label for="email">Email address</label>
+                                  <input type="email" class="form-control" id="email"  placeholder="{{worker.worker_email}}" value ="{{worker.worker_email}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pnumber">Phone</label>
+                                    <input type="tel" class="form-control" id="pnumber" placeholder="{{worker.worker_phone}}" value ="{{worker.worker_phone}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="worker_category">Category</label>
+                                    <input type="text" class="form-control" id="worker_category" placeholder="{{worker.worker_category}}" value ="{{worker.worker_category}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="worker_desc">Description</label>
+                                    <input type="text" class="form-control" id="worker_description" placeholder="{{worker.worker_desc}}" value ="{{worker.worker_desc}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="worker_pic">Picture</label><br>
+                                    <input type ="file" accept = "image/png, image/jpeg" id="worker_pic" name="worker_pic" value ="" class="file-upload" (change)="onFileSelected($event)">
+                                    <input type ="hidden" value="{{worker.worker_pic}}" id="worker_pic">
+                                    <input type ="hidden" value="{{worker.worker_id}}" id="worker_id">
+                                </div>
+                                <hr>
+
+                                <br><br>
+                                <button type="submit" class="btn btn-primary" (click)="updateWorkers()">Update</button>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
+                        </div>
+                      </ng-template>
+
+                      <ng-template #content2 let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-2">Delete {{worker.worker_name}}'s Info</h4>
+                          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type ="hidden" value="{{worker.worker_id}}" id="worker_id">
+                                    <label for="fullName">Are you sure you want to delete {{worker.worker_name}}'s record ?</label><br><br>
+                                    <button type="submit" class="btn btn-primary" (click)="deleteWorker()" style="background-color: red; color: white;">Yes, Delete</button>
+                                  </div>
+                                <hr>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
+                        </div>
+                      </ng-template>
+
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>

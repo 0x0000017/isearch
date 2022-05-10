@@ -15,56 +15,55 @@
 <br>
 
 <div class="form-group searchField">
-  <input type="text" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
+  <input type="text" style = "width: 500px;" class="form-control mb-4" placeholder="Search" [(ngModel)]="query" id="listSearch">
 </div>
 
+<!--  -->
+
 <div class="container">
-  <div class="box" *ngFor="let worker of worker | searchFilter: query">
-    <div class="image">
-       <img src="{{worker.worker_picture}}">
-    </div>
-    <div class="name_job">{{worker.worker_name}}</div>
-
-    <div class="rating">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-
-    <div class ="category">
-      <i class="fa fa-info-circle" ></i>
-        {{worker.worker_category}}
-    </div>
-
-    <div class="btns">
-      <button class="btn btn-lg btn-outline-primary" style="background-color: green" (click)="open(content)">View Details</button>
-    </div>
-    <ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{worker.worker_name}}'s Info</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label>Working as a: <b>{{worker.worker_category}}</b></label>
-            <hr><br>
-            <label>Location: <b>{{worker.worker_address}}</b></label>
-            <hr><br>
-            <label>Phone number: <b>{{worker.worker_phone}}</b></label>
-            <hr><br>
-            <label>Email address: <b>{{worker.worker_email}}</b></label>
-            <hr><br>
-            <label>Worker Note: <b>{{worker.worker_description}}</b></label>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
-      </div>
-    </ng-template>
+  <div class="box" *ngFor="let worker of worker.data | searchFilter: query ">
+      <div class="image">
+        <img *ngIf="worker.worker_pic" src ="{{worker.worker_pic}}">
+     </div>
+     <div *ngIf="worker.worker_name" class="name_job">{{worker.worker_name}}</div>
+     <div class="rating">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+     </div>
+     <div class ="category" *ngIf="worker.worker_category">
+       <i class="fa fa-info-circle" ></i>
+         {{worker.worker_category}}
+     </div>
+     <div class="btns">
+       <button class="btn btn-lg btn-outline-primary" style="background-color: green" (click)="open(content)">View Details</button>
+     </div>
+     <ng-template #content let-modal>
+       <div class="modal-header">
+         <h4 class="modal-title" id="modal-basic-title" *ngIf="worker.worker_name">{{worker.worker_name}}'s Info</h4>
+         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+       </div>
+       <div class="modal-body">
+         <form>
+           <div class="mb-3">
+             <label *ngIf="worker.worker_category">Working as a: <b>{{worker.worker_category}}</b></label>
+             <hr><br>
+             <label *ngIf="worker.worker_address">Location: <b>{{worker.worker_address}}</b></label>
+             <hr><br>
+             <label *ngIf="worker.worker_phone">Phone number: <b>{{worker.worker_phone}}</b></label>
+             <hr><br>
+             <label *ngIf="worker.worker_email">Email address: <b>{{worker.worker_email}}</b></label>
+             <hr><br>
+             <label *ngIf="worker.worker_desc">Worker Note: <b>{{worker.worker_desc}}</b></label>
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">OK</button>
+       </div>
+     </ng-template>
   </div>
 </div>
 </body>

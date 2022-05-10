@@ -22,6 +22,7 @@ import { WorkerRegComponent } from './components/worker-reg/worker-reg.component
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { CworkerComponent } from './components/cworker/cworker.component';
 import { SearchFilterPipe } from './search-filter.pipe';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
 
 
@@ -40,7 +41,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
     WorkerRegComponent,
     MyProfileComponent,
     CworkerComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    AdminpanelComponent
  
   ],
   imports: [

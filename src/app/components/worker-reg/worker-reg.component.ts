@@ -13,7 +13,7 @@ export class WorkerRegComponent implements OnInit {
   convertedImg
   postId;
   picNum = 100;
-  url = 'http://localhost:3000/Users';
+  url = 'http://localhost/isearch/isearch/api/worker/CreateWorker.php';
 
   onFileSelected(event) {
     const file = event.target.files[0]
@@ -22,8 +22,6 @@ export class WorkerRegComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.convertedImg = reader.result
-      console.log(this.convertedImg)
-
       return this.convertedImg
     }
   }
@@ -42,19 +40,16 @@ export class WorkerRegComponent implements OnInit {
       worker_name : w_name,
       worker_email : w_email,
       worker_phone: w_phone,
-      worker_picture: this.convertedImg,
+      worker_pic: this.convertedImg,
       worker_category : w_cat,
       worker_address : w_addr,
-      worker_description: w_desc
+      worker_desc: w_desc
     };
 
     const headers = {'content-type' :'application/json'}
     if (w_name && w_email && w_phone && w_pic && w_addr && w_cat && w_desc) {
-      this.http.post<any>(this.url,this.postData, {headers}).subscribe(data => {this.postId = data.id})
-      if (window.confirm('Success. Click OK to go back to home '))
-      {
-        window.location.href='/home';
-      };
+      this.http.post<any>(this.url,this.postData, {headers}).subscribe(data => {console.log(data)})
+      window.location.href='/worker';
     } else {
           alert("Invalid details ! Please check again !");
       }
